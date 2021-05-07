@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>City</th>
+        <th>Min</th>
+        <th>Max</th>
+        <th>Date</th>
+    </tr>
+    <tr>
+        <td><p th:text="${city.getTitle()}"></p></td>
+        <td><p th:text="${#numbers.formatDecimal(city.getTodayWeather().getMinTemp(), 0, 2)}"></p></td>
+        <td><p th:text="${#numbers.formatDecimal(city.getTodayWeather().getMaxTemp(), 0, 2)}"></p></td>
+        <td><p th:text="${city.getTodayWeather().getApplicableDate()}"></p></td>
+        <td><image th:width="30px" th:src="${city.getImageUrl()}"></image></td>
+    </tr>
+</table>
+
+<form th:action="@{/updateCity}" th:object="${newCity}" method="post">
+    <p>City: <input th:type="text" th:field="${newCity.name}" th:value="name"></p>
+    <p><input type="submit" value="change"></p>
+</form>
+</body>
+</html>
