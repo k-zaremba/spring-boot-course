@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>surname</th>
+            <th>age</th>
+        </tr>
+        <tr th:each="client : ${dbConnector.findByAgeRange(lower, upper)}">
+            <td th:text="${client.getId()}"></td>
+            <td th:text="${client.getName()}"></td>
+            <td th:text="${client.getSurename()}"></td>
+            <td th:text="${client.getAge()}"></td>
+        </tr>
+    </table>
+
+    <a href="/clients/form/add">
+        <input type="button" value="add">
+    </a>
+
+    <a href="/clients/form/delete">
+        <input type="button" value="delete">
+    </a>
+
+    <br>
+
+<form th:action="@{/clients/view/byAge}" th:object="${ageHolder}" method="post">
+    <p><b>Display by age</b></p>
+    <p>lower bound: <input type="text" th:field="*{lower}"></p>
+    <p>upper bound: <input type="text" th:field="*{upper}"></p>
+    <input type="submit" value="byAge">
+</form>
+
+</body>
+</html>
