@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>City</th>
+        <th>Min</th>
+        <th>Max</th>
+        <th>Date</th>
+    </tr>
+
+    <tr th:each="info : ${dao.readAll()}">
+        <td><p th:text="${info.city}"></p></td>
+        <td><p th:text="${info.minTemp}"></p></td>
+        <td><p th:text="${info.maxTemp}"></p></td>
+        <td><p th:text="${info.date}"></p></td>
+    </tr>
+</table>
+
+<form th:action="@{/info/updateCity}" th:object="${newCity}" method="post">
+    <p>City: <input th:type="text" th:field="${newCity.name}" th:value="name"></p>
+    <p><input type="submit" value="add to database"></p>
+</form>
+</body>
+</html>

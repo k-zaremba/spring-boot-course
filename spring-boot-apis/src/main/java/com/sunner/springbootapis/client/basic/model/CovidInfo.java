@@ -1,4 +1,4 @@
-package com.sunner.springbootapis.client.basic;
+package com.sunner.springbootapis.client.basic.model;
 import com.fasterxml.jackson.annotation.JsonProperty; // version 2.11.1
 
 import java.util.Date;

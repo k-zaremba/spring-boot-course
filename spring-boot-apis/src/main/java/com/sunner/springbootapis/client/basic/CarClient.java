@@ -64,6 +64,8 @@ public class CarClient {
 
     @GetMapping("/presentation/{amount}")
     public String presentCars(Model model, @PathVariable int amount){
+
+        //wysyla request do /cars/amount w headerze podajac @amount
         model.addAttribute("carsArray", getCarsAmount(amount));
 
         return "carsPresentation";

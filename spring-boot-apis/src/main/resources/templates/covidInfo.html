@@ -11,13 +11,13 @@
             <th>Date</th>
             <th>Confirmed</th>
             <th>Active</th>
-            <th>Deaths</th><br/>
+            <th>Deaths</th>
         </tr>
         <tr th:each="info : ${fullInfo}">
             <td th:text="${info.getDate()}"></td>
             <td th:text="${info.getConfirmed()}"></td>
             <td th:text="${info.getActive()}"></td>
-            <td th:text="${info.getDeaths()}"></td><br/>
+            <td th:text="${info.getDeaths()}"></td>
         </tr>
     </table>
 </body>

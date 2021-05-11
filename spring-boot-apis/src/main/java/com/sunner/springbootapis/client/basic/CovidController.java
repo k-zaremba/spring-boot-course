@@ -1,6 +1,6 @@
 package com.sunner.springbootapis.client.basic;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import com.sunner.springbootapis.client.basic.model.CovidInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
